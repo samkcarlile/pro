@@ -1,10 +1,10 @@
-all: compile install
+all: install
 
-compile: main.go
-	go build -o pro
+build/pro: main.go commands.go utils.go
+	go build -o build/pro
 
-install: ./pro
-	cp ./pro $(HOME)/bin/pro
+install: build/pro
+	cp ./build/pro $(HOME)/bin/pro
 
 
 #setup:
