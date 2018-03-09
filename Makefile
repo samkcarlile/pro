@@ -1,12 +1,11 @@
-all: install
+build: build/pro
 
 build/pro: main.go commands.go utils.go
 	go build -o build/pro
 
-install: build/pro
+install: setup build/pro
 	cp ./build/pro $(HOME)/bin/pro
 
 
-#setup:
-#	mkdir $(HOME)/.pro
-#	echo "{}" > $(HOME)/.pro-config
+setup:
+	mkdir $(HOME)/.pro
