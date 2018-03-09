@@ -1,6 +1,7 @@
 build: build/pro
 
 build/pro: main.go commands.go utils.go
+	mkdir build
 	go build -o build/pro
 
 install: setup build/pro
