@@ -55,6 +55,10 @@ func repairProjects(projects []string) error {
 }
 
 func deleteProject(projectname string) error {
+	if !projectExists(projectname) {
+		println("project doesn't exist")
+		return nil
+	}
 	reply := input(fmt.Sprintf("delete project '%s'? (y/n)", projectname))
 	if strings.Trim(reply, " \n\t") != "y" {
 		println("abort")
